@@ -22,12 +22,12 @@ public class myHeroScript : MonoBehaviour
 
         {
             if (Input.GetKey(KeyCode.A))
-                transform.position -= new Vector3(6, 0, 0) * Time.deltaTime;
+                transform.position -= runSpeed * transform.right * Time.deltaTime;
         }
 
         {
             if (Input.GetKey(KeyCode.D))
-                transform.position += new Vector3(6, 0, 0) * Time.deltaTime;
+                transform.position += runSpeed * transform.right * Time.deltaTime;
         }
 
         {
@@ -53,6 +53,11 @@ public class myHeroScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftControl))
                 transform.position -= runSpeed * transform.up * Time.deltaTime;
+        }
+
+        {
+          
+                
         }
     }
 }
