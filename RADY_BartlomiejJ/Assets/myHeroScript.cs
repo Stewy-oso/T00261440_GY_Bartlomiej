@@ -6,10 +6,12 @@ public class myHeroScript : MonoBehaviour
 {
     float runSpeed = 6f;
     float turnSpeed = 90f;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,7 +49,8 @@ public class myHeroScript : MonoBehaviour
 
         {
             if (Input.GetKey(KeyCode.Space))
-                transform.position += runSpeed * transform.up * Time.deltaTime;
+                //transform.position += runSpeed * transform.up * Time.deltaTime;
+                rb.AddForce(new Vector3(0, 2, 0));
         }
 
         {
