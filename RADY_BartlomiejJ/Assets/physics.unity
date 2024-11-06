@@ -249,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 227961113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0.5, z: 4}
+  m_LocalPosition: {x: 0.08, y: 1.56, z: 9.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,7 +356,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -401,7 +401,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
@@ -466,6 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7d3e575037abf4f850ad45b90c1163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carrotCloneTemplate: {fileID: 8328242310024553984, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+  Cube: {fileID: 227961113}
 --- !u!1 &701063241
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +595,7 @@ Transform:
   m_GameObject: {fileID: 701063241}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.88, y: 12.47, z: 1.86}
+  m_LocalPosition: {x: -0.09, y: 2.8, z: 9.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -727,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 834292777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0.5, z: 4}
+  m_LocalPosition: {x: 0.07, y: 0.5, z: 9.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -753,6 +755,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4055529907236105590, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055529907236105590, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452681077739782088, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452681077739782088, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452681077739782088, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8328242310024553984, guid: 2a42b99680f0e78428b3ccaa3986ccc4, type: 3}
       propertyPath: m_Name
       value: ExpShell (1)
