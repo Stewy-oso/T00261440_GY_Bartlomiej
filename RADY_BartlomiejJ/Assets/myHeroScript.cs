@@ -12,6 +12,7 @@ public class myHeroScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -19,7 +20,11 @@ public class myHeroScript : MonoBehaviour
     {
         {
             if (Input.GetKey(KeyCode.W))
-                transform.position += runSpeed * transform.forward * Time.deltaTime;
+            {
+                Vector3 fpsMovementDir = new Vector3(transform.forward.x, 0, transform.forward.z);
+                fpsMovementDir.Normalize();
+                transform.position += runSpeed * fpsMovementDir * Time.deltaTime;
+            }
         }
 
         {
@@ -34,7 +39,11 @@ public class myHeroScript : MonoBehaviour
 
         {
             if (Input.GetKey(KeyCode.S))
-                transform.position -= runSpeed * transform.forward * Time.deltaTime;
+            {
+                Vector3 fpsMovementDir = new Vector3(transform.forward.x, 0, transform.forward.z);
+                fpsMovementDir.Normalize();
+                transform.position -= runSpeed * fpsMovementDir * Time.deltaTime;
+            }
         }
 
         {
@@ -59,8 +68,10 @@ public class myHeroScript : MonoBehaviour
         }
 
         {
-          
-                
+            transform.Rotate(Vector3.up, Input.GetAxis("Horizontal"), Space.World);
+
+            transform.Rotate(transform.right, Input.GetAxis("Vertical"), Space.World);
+
         }
     }
 }
