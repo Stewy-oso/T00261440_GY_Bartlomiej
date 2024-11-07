@@ -33,14 +33,14 @@ public class FPScontrol : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            Vector3 fpsMovementDir = new Vector3(transform.right.y, 0, transform.right.z);
+            Vector3 fpsMovementDir = new Vector3(transform.right.x, 0, transform.right.z);
             fpsMovementDir.Normalize();
             transform.position += speed * fpsMovementDir * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            Vector3 fpsMovementDir = new Vector3(transform.right.y, 0, transform.right.z);
+            Vector3 fpsMovementDir = new Vector3(transform.right.x, 0, transform.right.z);
             fpsMovementDir.Normalize();
             transform.position -= speed * fpsMovementDir * Time.deltaTime;
         }
