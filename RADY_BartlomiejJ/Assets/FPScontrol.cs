@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
+using UnityEngine.Experimental.Playables;
 
 public class FPScontrol : MonoBehaviour
 {
     public GameObject carrotCloneTemplate;
     public GameObject Cube;
     float speed = 3;
+    public float yMaxLimit = 5;
+    public float yMinLimit = -5;
+    float yRotateC = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +56,9 @@ public class FPScontrol : MonoBehaviour
 
         transform.Rotate(transform.right, Input.GetAxis("Vertical"), Space.World);
 
+        // Tried limiting Y camera rotation, however it doesn't work (Tried to learn Mathf.Clamp)
+        yRotateC = Mathf.Clamp(yRotateC, yMinLimit, yMaxLimit);
+
         if (Input.GetMouseButtonDown(0)) 
         {
             Instantiate(carrotCloneTemplate, transform.position, transform.rotation); 
@@ -58,5 +68,6 @@ public class FPScontrol : MonoBehaviour
         {
             Instantiate(Cube, transform.position, transform.rotation);
         }
+
     }
 }
