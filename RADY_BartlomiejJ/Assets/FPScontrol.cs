@@ -4,21 +4,22 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Experimental.Playables;
+using UnityEngine.UIElements;
 
 public class FPScontrol : MonoBehaviour
 {
     public GameObject carrotCloneTemplate;
     public GameObject Cube;
     float speed = 3;
-    public float yMaxLimit = 5;
-    public float yMinLimit = -5;
+    public float yMaxLimit = 45;
+    public float yMinLimit = -45;
     float yRotateC = 0;
-
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -52,12 +53,30 @@ public class FPScontrol : MonoBehaviour
             transform.position -= speed * fpsMovementDir * Time.deltaTime;
         }
 
-        transform.Rotate(Vector3.up, Input.GetAxis("Horizontal"), Space.World);
+       if (Input.GetKey(KeyCode.Space))
+        {
+            Vector3 fpsMovementDir = new Vector3(0, transform.up.y, 0);
+            fpsMovementDir.Normalize();
+            transform.position += speed * fpsMovementDir * Time.deltaTime;
+        }
 
-        transform.Rotate(transform.right, Input.GetAxis("Vertical"), Space.World);
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            Vector3 fpsMovementDir = new Vector3(0, transform.up.y, 0);
+            fpsMovementDir.Normalize();
+            transform.position -= speed * fpsMovementDir * Time.deltaTime;
+        }
+
+            transform.Rotate(Vector3.up, Input.GetAxis("Horizontal"), Space.World);
+
+            transform.Rotate(transform.right, Input.GetAxis("Vertical"), Space.World);
 
         // Tried limiting Y camera rotation, however it doesn't work (Tried to learn Mathf.Clamp)
-        yRotateC = Mathf.Clamp(yRotateC, yMinLimit, yMaxLimit);
+        //yRotateC = Mathf.Clamp(yRotateC, yMinLimit, yMaxLimit);
+
+        //yRotateC += Input.GetAxis("Vertical");
+        //yRotateC = Mathf.Clamp (yRotateC, yMinLimit, yMaxLimit);
+        //transform.eulerAngles = new Vector3(0, -yRotateC, 0) * Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0)) 
         {
